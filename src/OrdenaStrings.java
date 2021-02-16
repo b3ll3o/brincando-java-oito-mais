@@ -42,34 +42,38 @@ public class OrdenaStrings {
 //			return 0;
 //		});
 		
-		nomes.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
+		//nomes.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
 		
-		System.out.println(nomes);
+		//System.out.println(nomes);
 		
-		Consumer<String> consumidor = new ImprimiNaLinha();
-		nomes.forEach(consumidor);
+		//nomes.sort(Comparator.comparing(s -> s.length()));
 		
-		Consumer<String> consumirdor2 = new Consumer<String>() {
-
-			@Override
-			public void accept(String s) {
-				System.out.println(s);
-			}
-			
-		};
+		nomes.sort(Comparator.comparing(String::length));
 		
-		nomes.forEach(consumirdor2);
+//		Consumer<String> consumidor = new ImprimiNaLinha();
+//		nomes.forEach(consumidor);
+//		
+//		Consumer<String> consumirdor2 = new Consumer<String>() {
+//
+//			@Override
+//			public void accept(String s) {
+//				System.out.println(s);
+//			}
+//			
+//		};
+//		
+//		nomes.forEach(consumirdor2);
+//		
+//		nomes.forEach(new Consumer<String>() {
+//
+//			@Override
+//			public void accept(String s) {
+//				System.out.println(s);
+//			}
+//			
+//		});
 		
-		nomes.forEach(new Consumer<String>() {
-
-			@Override
-			public void accept(String s) {
-				System.out.println(s);
-			}
-			
-		});
-		
-		nomes.forEach(nome -> System.out.println(nome));
+		nomes.forEach(System.out::println);
 	}
 }
 
