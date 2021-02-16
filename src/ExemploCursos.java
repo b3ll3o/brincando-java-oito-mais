@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 class Curso {
 	private String nome;
@@ -35,10 +36,24 @@ public class ExemploCursos {
 		
 		//cursos.forEach(curso -> System.out.println(curso.getNome()));
 		
-		cursos
+//		cursos
+//			.stream()
+//			.filter(c -> c.getAlunos() >= 100)
+//			.mapToInt(Curso::getAlunos)
+//			.forEach(System.out::println);
+//		
+//		cursos
+//			.stream()
+//			.filter(c -> c.getAlunos() >= 100)
+//			.findAny()
+//			.ifPresent(c -> System.out.println(c.getNome()));
+//		
+		List<Curso> resultado = cursos
 			.stream()
 			.filter(c -> c.getAlunos() >= 100)
-			.mapToInt(Curso::getAlunos)
-			.forEach(System.out::println);
+			.collect(Collectors.toList());
+		
+		resultado.forEach(r -> System.out.println(r.getNome()));
+			
 	}
 }
